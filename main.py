@@ -1,6 +1,7 @@
 # Author: ATN 5/17/22
 
 from tkinter import *
+import customtkinter
 
 main = Tk()
 
@@ -9,6 +10,7 @@ main.configure(bg='white')
 
 def close_window():
     exit()
+
 
 
 examen = Button(main, text='Examen')
