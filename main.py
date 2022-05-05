@@ -1,22 +1,45 @@
 # Author: ATN 5/17/22
 
-from tkinter import *
-import customtkinter
+import tkinter as tk
+from tkinter import ttk, Toplevel, Text
 
-main = Tk()
+root = tk.Tk()
 
-main.geometry("1024x768")
-main.configure(bg='white')
+big_frame = ttk.Frame(root)
+big_frame.pack(fill="both", expand=True)
+
+root.tk.call("source", "azure.tcl")
+root.tk.call("set_theme", "light")
 
 def close_window():
     exit()
 
 
+def change_theme():
+    if root.tk.call("ttk::style", "theme", "use") == "azure-dark":
+        root.tk.call("set_theme", "light")
+    else:
+        root.tk.call("set_theme", "dark")
 
-examen = Button(main, text='Examen')
+
+def create_examen():
+    win_examen = Toplevel(root)
+    win_examen.geometry("1024x768")
+    t = Text(win_examen, height = 5, width = 52)
+
+    text_examen = """this is some placeholder text this is some placeholder text this is some placeholder text"""
+
+    t.pack()
+    t.insert(tk.END, text_examen)
+
+
+examen = ttk.Button(root, text="Examen", command=create_examen)
 examen.pack()
 
-close = Button(main, text='Exit', command=close_window)
+theme = ttk.Button(root, text="Change", command=change_theme)
+theme.pack()
+
+close = ttk.Button(root, text="Exit", command=close_window)
 close.pack()
 
-mainloop()
+root.mainloop()
