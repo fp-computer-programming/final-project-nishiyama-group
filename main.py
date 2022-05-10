@@ -25,9 +25,10 @@ def change_theme():
 
 def create_examen_page_1():
     win_examen = Toplevel(root)
-    win_examen.geometry("1024x768")
-    t = Text(win_examen, height = 5, width = 52)
-    examen_1 = """1. Place yourself in God’s presence. Give thanks for God’s great love for you."""
+    win_examen.geometry("720x480")
+    t = Text(win_examen, height = 5, width = 100)
+    t.configure(font=("Arial", 20, "bold"))
+    examen_1 = """1. Place yourself in God’s presence. \nGive thanks for God’s great love for you."""
     t.pack()
     t.insert(tk.END, examen_1)
     next = ttk.Button(win_examen, text="Next", command=lambda:[create_examen_page_2(), win_examen.destroy()])
@@ -36,8 +37,9 @@ def create_examen_page_1():
 
 def create_examen_page_2():
     win_examen = Toplevel(root)
-    win_examen.geometry("1024x768")
-    t = Text(win_examen, height = 5, width = 52)
+    win_examen.geometry("720x480")
+    t = Text(win_examen, height = 5, width = 100)
+    t.configure(font=("Arial", 20, "bold"))
     examen_2 = """2. Pray for the grace to understand how God is acting in your life."""
     t.pack()
     t.insert(tk.END, examen_2)
@@ -47,9 +49,10 @@ def create_examen_page_2():
 
 def create_examen_page_3():
     win_examen = Toplevel(root)
-    win_examen.geometry("1024x768")
-    t = Text(win_examen, height = 5, width = 52)
-    examen_3 = """3. Review your day — recall specific moments and your feelings at the time."""
+    win_examen.geometry("720x480")
+    t = Text(win_examen, height = 5, width = 100)
+    t.configure(font=("Arial", 20, "bold"))
+    examen_3 = """3. Review your day — recall specific moments and your feelings at the \ntime."""
     t.pack()
     t.insert(tk.END, examen_3)
     next = ttk.Button(win_examen, text="Next", command=lambda:[create_examen_page_4(), win_examen.destroy()])
@@ -58,9 +61,10 @@ def create_examen_page_3():
 
 def create_examen_page_4():
     win_examen = Toplevel(root)
-    win_examen.geometry("1024x768")
-    t = Text(win_examen, height = 5, width = 52)
-    examen_4 = """4. Reflect on what you did, said, or thought in those instances. Were you drawing closer to God, or further away?"""
+    win_examen.geometry("720x480")
+    t = Text(win_examen, height = 5, width = 100)
+    t.configure(font=("Arial", 20, "bold"))
+    examen_4 = """4. Reflect on what you did, said, or thought in those instances. Were you \ndrawing closer to God, or further away?"""
     t.pack()
     t.insert(tk.END, examen_4)
     next = ttk.Button(win_examen, text="Next", command=lambda:[create_examen_page_5(), win_examen.destroy()])
@@ -69,9 +73,10 @@ def create_examen_page_4():
 
 def create_examen_page_5():
     win_examen = Toplevel(root)
-    win_examen.geometry("1024x768")
-    t = Text(win_examen, height = 5, width = 52)
-    examen_5 = """5. Look toward tomorrow — think of how you might collaborate more effectively with God’s plan. Be specific, and conclude with the \“Our Father.\”"""
+    win_examen.geometry("720x480")
+    t = Text(win_examen, height = 5, width = 100)
+    t.configure(font=("Arial", 20, "bold"))
+    examen_5 = """5. Look toward tomorrow — think of how you might collaborate more \neffectively with God’s plan. Be specific, and conclude with the \n“Our Father.”"""
     t.pack()
     t.insert(tk.END, examen_5)
     finish = ttk.Button(win_examen, text="Finish", command=win_examen.destroy)
@@ -92,11 +97,36 @@ random.shuffle(values)
 
 def list_tasks_page_1():
     win_tasks = Toplevel(root)
-    win_tasks.geometry("1024x768")
-    t = Text(win_tasks, height = 5, width = 52)
+    win_tasks.geometry("720x480")
+    t = Text(win_tasks, height = 5, width = 100)
+    t.configure(font=("Arial", 20, "bold"))
     tasks_1 = """{0} Difficulty: {1}""".format(keys[0], values[0])
     t.pack()
     t.insert(tk.END, tasks_1)
+    next = ttk.Button(win_tasks, text="Next", command=lambda:[list_tasks_page_2(), win_tasks.destroy()])
+    next.pack()
+
+
+def list_tasks_page_2():
+    win_tasks = Toplevel(root)
+    win_tasks.geometry("720x480")
+    t = Text(win_tasks, height = 5, width = 100)
+    t.configure(font=("Arial", 20, "bold"))
+    tasks_2 = """{0} Difficulty: {1}""".format(keys[1], values[1])
+    t.pack()
+    t.insert(tk.END, tasks_2)
+    next = ttk.Button(win_tasks, text="Next", command=lambda:[list_tasks_page_3(), win_tasks.destroy()])
+    next.pack()
+
+
+def list_tasks_page_3():
+    win_tasks = Toplevel(root)
+    win_tasks.geometry("720x480")
+    t = Text(win_tasks, height = 5, width = 100)
+    t.configure(font=("Arial", 20, "bold"))
+    tasks_3 = """{0} Difficulty: {1}""".format(keys[2], values[2])
+    t.pack()
+    t.insert(tk.END, tasks_3)
     next = ttk.Button(win_tasks, text="Next", command=win_tasks.destroy)
     next.pack()
 
