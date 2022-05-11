@@ -12,6 +12,8 @@ big_frame.pack(fill="both", expand=True)
 root.tk.call("source", "azure.tcl")
 root.tk.call("set_theme", "light")
 
+personality_type = 'extroverted'
+
 def close_window():
     exit()
 
@@ -95,6 +97,23 @@ random.shuffle(keys)
 values = list(tasks.values())
 random.shuffle(values)
 
+# hoping to sort out tasks as given by the user's personality type
+def personality():
+    win_personality = Toplevel(root)
+    win_personality.geometry("720x480")
+    t = Text(win_personality, height = 5, width = 100)
+    t.configure(font=("Arial", 20, "bold"))
+    personalities = """Personality type: {0}""".format(personality_type)
+    t.pack()
+    t.insert(tk.END, personalities)
+    # introverted = ttk.Button(win_personality, text="Introverted", command=)
+    # introverted.pack()
+    # extroverted = ttk.Button(win_personality, text="Extroverted", command=)
+    # extroverted.pack()
+    leave = ttk.Button(win_personality, text="leave", command=win_personality.destroy)
+    leave.pack()
+
+    
 def list_tasks_page_1():
     win_tasks = Toplevel(root)
     win_tasks.geometry("720x480")
@@ -127,8 +146,10 @@ def list_tasks_page_3():
     tasks_3 = """{0} Difficulty: {1}""".format(keys[2], values[2])
     t.pack()
     t.insert(tk.END, tasks_3)
-    next = ttk.Button(win_tasks, text="Next", command=win_tasks.destroy)
-    next.pack()
+    leave = ttk.Button(win_tasks, text="Leave", command=win_tasks.destroy)
+    leave.pack()
+
+
 
 
 examen = ttk.Button(root, text="Examen", command=create_examen_page_1)
@@ -136,6 +157,9 @@ examen.pack()
 
 tasks = ttk.Button(root, text="Tasks", command=list_tasks_page_1)
 tasks.pack()
+
+personality = ttk.Button(root, text="Personality", command=personality)
+personality.pack()
 
 theme = ttk.Button(root, text="Theme", command=change_theme)
 theme.pack()
