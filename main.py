@@ -2,25 +2,19 @@
 
 import tkinter as tk
 from tkinter import ttk, Toplevel, Text
+from ttkthemes import themed_tk as tttk
 import random
 
-root = tk.Tk()
+root = tttk.ThemedTk()
+root.get_themes()
+root.set_theme("plastik")
+
 
 big_frame = ttk.Frame(root)
 big_frame.pack(fill="both", expand=True)
 
-root.tk.call("source", "azure.tcl")
-root.tk.call("set_theme", "light")
-
 def close_window():
     exit()
-
-
-def change_theme():
-    if root.tk.call("ttk::style", "theme", "use") == "azure-dark":
-        root.tk.call("set_theme", "light")
-    else:
-        root.tk.call("set_theme", "dark")
 
 
 def create_examen_page_1():
@@ -138,9 +132,6 @@ examen.pack()
 
 tasks = ttk.Button(root, text="Tasks", command=list_tasks_page_1)
 tasks.pack()
-
-theme = ttk.Button(root, text="Theme", command=change_theme)
-theme.pack()
 
 close = ttk.Button(root, text="Exit", command=close_window)
 close.pack()
