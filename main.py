@@ -1,22 +1,27 @@
-# Author: ATN 5/17/22
+# Author: ATN 5/23/22
 
+# imported the dependencies
 import tkinter as tk
 from tkinter import ttk, Toplevel, Text
 from ttkthemes import themed_tk as tttk
 import random
 
+# setting up the theme of the project as well as the main application
 root = tttk.ThemedTk()
 root.get_themes()
 root.set_theme("plastik")
 
-
+# creating a frame for the project
 big_frame = ttk.Frame(root)
 big_frame.pack(fill="both", expand=True)
 
+
+# setting up the ability for the window to close at the press of a button
 def close_window():
     exit()
 
 
+# creating an application window at the given size and formatting the text
 def create_examen_page_1():
     win_examen = Toplevel(root)
     win_examen.geometry("720x480")
@@ -25,6 +30,7 @@ def create_examen_page_1():
     examen_1 = """1. Place yourself in God’s presence. \nGive thanks for God’s great love for you."""
     t.pack()
     t.insert(tk.END, examen_1)
+    # i used lambda in order to execute two functions simultaneously
     next = ttk.Button(win_examen, text="Next", command=lambda:[create_examen_page_2(), win_examen.destroy()])
     next.pack()
 
@@ -76,13 +82,14 @@ def create_examen_page_5():
     finish = ttk.Button(win_examen, text="Finish", command=win_examen.destroy)
     finish.pack()
 
-
+# created a dictionary in order to store the keys and values for each and every task
 tasks = {
     "Compliment a stranger" : "1",
     "Volunteer at an organization" : "3",
     "Donate to a charity" : "3"
 }
 
+# shuffling the keys so the user is prompted for a new task each time they load it
 keys = list(tasks.keys())
 random.shuffle(keys)
 
@@ -160,7 +167,7 @@ def create_serenity_page_1():
     close = ttk.Button(win_serenity, text="Next", command=win_serenity.destroy)
     close.pack()
 
-
+# setting up the buttons to be pressed in this program along with their respective functions
 examen = ttk.Button(root, text="Examen", command=create_examen_page_1)
 examen.pack()
 
