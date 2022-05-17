@@ -125,10 +125,53 @@ def list_tasks_page_3():
     leave.pack()
 
 
+def create_generosity_page_1():
+    win_generosity = Toplevel(root)
+    win_generosity.geometry("720x480")
+    t = Text(win_generosity, height = 5, width = 100)
+    t.configure(font=("Arial", 20, "bold"))
+    generosity_1 = """Lord Jesus, teach me to be generous. Teach me to serve as you deserve, \nto give and not to count the cost, to fight and not to heed the wounds, to \nlabor and not to seek to rest, to give of my self and not ask for a reward, \nexcept the reward of knowing that I am doing your will. St. Ignatius of \nLoyola, pray for us. Amen"""
+    t.pack()
+    t.insert(tk.END, generosity_1)
+    close = ttk.Button(win_generosity, text="Close", command=win_generosity.destroy)
+    close.pack()
+
+
+def create_ourfather_page_1():
+    win_ourfather = Toplevel(root)
+    win_ourfather.geometry("720x480")
+    t = Text(win_ourfather, height = 5, width = 100)
+    t.configure(font=("Arial", 20, "bold"))
+    ourfather_1 = """Our Father, who art in heaven, hallowed be thy name; thy kingdom come; \nthy will be done on earth as it is in heaven. Give us this day our daily \nbread; and forgive us our trespasses as we forgive those who trespass \nagainst us; and lead us not into temptation, but deliver us from evil. Amen."""
+    t.pack()
+    t.insert(tk.END, ourfather_1)
+    close = ttk.Button(win_ourfather, text="Close", command=win_ourfather.destroy)
+    close.pack()
+
+
+def create_serenity_page_1():
+    win_serenity = Toplevel(root)
+    win_serenity.geometry("720x480")
+    t = Text(win_serenity, height = 5, width = 100)
+    t.configure(font=("Arial", 20, "bold"))
+    serenity_1 = """God, grant me the serenity to accept the things I cannot change, courage \nto change the things I can, and wisdom to know the difference."""
+    t.pack()
+    t.insert(tk.END, serenity_1)
+    close = ttk.Button(win_serenity, text="Next", command=win_serenity.destroy)
+    close.pack()
 
 
 examen = ttk.Button(root, text="Examen", command=create_examen_page_1)
 examen.pack()
+
+generosity = ttk.Button(root, text="Generosity", command=create_generosity_page_1)
+generosity.pack()
+
+ourfather = ttk.Button(root, text="Our Father", command=create_ourfather_page_1)
+ourfather.pack()
+
+serenity = ttk.Button(root, text="Serenity", command=create_serenity_page_1)
+serenity.pack()
 
 tasks = ttk.Button(root, text="Tasks", command=list_tasks_page_1)
 tasks.pack()
